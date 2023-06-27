@@ -1,0 +1,32 @@
+{%extends "user/layout.html"%}
+{% block header %}{%endblock%}
+
+{% block content %}
+    
+<div class="content" style="background-color: white;padding:3em">
+    <h3> Please complete this form to donate to BookWorm </h3>
+<form action="" method="post"> 
+    <div class="mb-3">
+        <input type="text" name="fullname" placeholder="Your name" value="{% if userdeets %}{{ userdeets.user_fullname }}
+        {% endif %}">
+    </div>
+    <div class="mb-3">
+        <input type="text" name="email" placeholder="Your email" value="{% if userdeets %}{{ userdeets.user_email }}
+        {% endif %}">
+    </div>
+    <div class="mb-3">
+        <input type="hidden" value="{{ csrf_token() }}" name="csrf_token">
+        <input type="hidden" value="{{ userdeets.user_id}}" name="userid">
+
+        <input type="number" name="amount" placeholder="Amount">
+    </div>
+    <div class="mb-3">
+
+        <button class="btn btn-primary"> Continue </button>
+    </div> 
+</form>
+</div>
+{%endblock%}
+
+{% block morecontent %}{% endblock morecontent%} 
+{% block featured %}{%endblock%}
